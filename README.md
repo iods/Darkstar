@@ -1,32 +1,28 @@
-[![forthebadge](https://forthebadge.com/images/badges/built-by-neckbeards.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
+SDK - A Development Kit for PHP
+===============================
 
-Darkstar PHP - A PHP Boilerplate
-================================
+A project repository and SDK for PHP.
 
-A PHP framework written to keep my skillz fresh.
 
 Facts
 -----
 
  * Version: 0.1.0 (Development)
- * [Repository on Github](https://github.com/iods/darkstar)
+ * [Repository on Github](https://github.com/iods/php-sdk)
  
 
 Description
 -----------
 
-It just needed to happen. As a developer I am just working on my expertise.
+Combines multiple PHP projects, examples, and tools from my past and future PHP experiences.
 
 
 Requirements
 ------------
 
  * [Composer](http://getcomposer.org)
- * [CircleCI](http://circleci.com)
  * [Git](http://git-scm.com)
- 
+
 
 Developer
 ---------
@@ -34,13 +30,14 @@ Developer
 **Rye Miller**
 
  * [GitHub](http://github.com/iods/)
- * [Website](http://ryemiller.com)
+ * [Website](http://ryemiller.io)
+ * [Twitter](https://twitter.com/ryemiller)
 
 
 Support
 -------
 
-For any issues with this project, open an issue on [Github](https://github.com/iods/darkstar)
+For any issues with this project, open an issue on [Github](https://github.com/iods/php-sdk)
 
 
 Versioning
@@ -59,10 +56,10 @@ Thank you to [Red Bull](http://www.redbull.com) for keeping me awake all those l
 License
 -------
 
-This project/code is released under [the MIT license](https://github.com/l7developers/seelk/LICENSE).
+This project/code is released under [the MIT license](https://github.com/iods/php-sdk/LICENSE).
 
 
 Copyright
 ---------
 
-(c) 2017-2018 Rye Miller. All Rights Reserved.
+Copyright (c) 2017-2021, Rye Miller.
