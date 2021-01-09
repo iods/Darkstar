@@ -15,11 +15,11 @@ services:
     networks:
       - appdata
     ports:
-      - '80:80'
+      - '8150:80'
 
     volumes:
-      - ./config/docker/nginx/darkstar.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./src/darkstar:/var/www:delegated
+      - ./config/docker/nginx/laravel.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./src/laravel:/var/www:delegated
 
     restart: on-failure
 
@@ -28,8 +28,6 @@ services:
     build:
       context: .
       dockerfile: build/dev/php/7.4/fpm/Dockerfile
-      args:
-        - PHP_VERSION=$PHP_VERSION
     container_name: phpfpm
 
     environment:
@@ -39,7 +37,7 @@ services:
       - appdata
 
     volumes:
-      - ./src/darkstar:/var/www:delegated
+      - ./src/laravel:/var/www:delegated
 
     restart: on-failure
 

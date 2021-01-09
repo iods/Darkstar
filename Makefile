@@ -3,7 +3,7 @@
 #
 
 # Build the environment
-all: init build
+all: init create build
 
 # Runs a test on the php:7.4-fpm image
 test-phpfpm: init test-build-phpfpm test-destroy-phpfpm
@@ -14,14 +14,17 @@ test-phpfpm: init test-build-phpfpm test-destroy-phpfpm
 init:
 	@echo "Running some cool shit here..."
 
+create:
+	@composer create-project --ignore-platform-reqs --prefer-dist laravel/laravel src/laravel
+	@cp config/env/laravel.env .env
+
 build:
-	@cp config/env/darkstar.env .env
-	@docker-compose up -d --build
+	@docker-compose up -d
 
 down:
 	@docker-compose down
 	@rm .env
-
+	@rm -rf src/laravel
 
 #
 # PHP 7.4-fpm Tests
@@ -36,4 +39,4 @@ test-destroy-phpfpm:
 #
 # Phony reference
 #
-.PHONY: init build down test-build-phpfpm test-destroy-phpfpm
+.PHONY: init build down test-build-phpfpm test-destroy-phpfpm create
