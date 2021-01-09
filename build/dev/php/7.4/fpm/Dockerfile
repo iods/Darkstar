@@ -1,5 +1,4 @@
-ARG PHP_TAG=7.4-fpm
-FROM php:$PHP_TAG
+FROM php:7.4-fpm
 
 RUN \
     apt-get update \
@@ -10,7 +9,7 @@ RUN \
 
 COPY --from=composer:1.9.3 /usr/bin/composer /usr/bin/composer
 
-ADD config/docker/php/php.ini /usr/local/etc/php/conf.d/40-custom.ini
+COPY config/docker/php/php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
 WORKDIR /var/www
 
