@@ -4,24 +4,29 @@ SDK - A Development Kit for PHP
 A project repository and SDK for PHP.
 
 
-Facts
------
+Getting Started
+---------------
+
+### Facts
 
  * Version: 0.1.0 (Development)
  * [Repository on Github](https://github.com/iods/php-sdk)
  
 
-Description
------------
+### Description
 
 Combines multiple PHP projects, examples, and tools from my past and future PHP experiences.
 
 
-Requirements
-------------
+### Requirements
 
  * [Composer](http://getcomposer.org)
  * [Git](http://git-scm.com)
+
+
+### Installation
+
+The Makefile will copy over the project .env file upon build, and remove upon destroy of the environments.
 
 
 Developer

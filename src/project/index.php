@@ -1,3 +1,5 @@
 <?php
 
-phpinfo();
+header("content-type: text/html; charset=utf-8", true);
+
+echo "hello, world";

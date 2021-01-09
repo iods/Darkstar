@@ -15,10 +15,12 @@ init:
 	@echo "Running some cool shit here..."
 
 build:
+	@cp config/env/darkstar.env .env
 	@docker-compose up -d --build
 
 down:
 	@docker-compose down
+	@rm .env
 
 
 #
