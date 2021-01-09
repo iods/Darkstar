@@ -1,0 +1,15 @@
+/.git
+/.github
+/.idea
+/build
+/config
+/data
+/tests
+.dockerignore
+.gitignore
+CHANGELOG.md
+docker-compose.yml
+LICENSE
+Makefile
+README.md
+TODO.md

@@ -12,6 +12,6 @@ COPY --from=composer:1.9.3 /usr/bin/composer /usr/bin/composer
 
 ADD config/docker/php/php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
-WORKDIR /app
+WORKDIR /var/www
 
-CMD ["php-fmp"]
+CMD ["php-fpm"]
