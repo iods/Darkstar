@@ -1,59 +1,37 @@
-version: '3'
+version: '3.8'
 
 services:
-
-  web:
-    build:
-      context: .
-      dockerfile: build/dev/nginx/1.18/alpine/Dockerfile
-    container_name: web
-    depends_on:
-      - phpfpm
-    environment:
-      DEBUG: 1
-    ports:
-      - '8150:80'
-    volumes:
-      - phpfpm-socket:/var/run/php-fpm
-      - ./src/laravel:/var/www:delegated
-    restart: on-failure
 
   phpfpm:
     build:
       context: .
-      dockerfile: build/dev/php/7.4/fpm/Dockerfile
-    container_name: phpfpm
-    depends_on:
-      - db
-    environment:
-      DEBUG: 1
-      DB_CONNECTION: mysql
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_DATABASE: ${DB_NAME:-laravel}
-      DB_USERNAME: ${DB_USER:-developer}
-      DB_PASSWORD: ${DB_PASS:-developer}
-    volumes:
-      - phpfpm-socket:/var/run/php-fpm
-      - ./src/laravel:/var/www:delegated
-    restart: on-failure
+      dockerfile: build/docker/php/Dockerfile
+    image: phpfpm
+    container_name: app-phpfpm
 
-  db:
-    build:
-      context: .
-      dockerfile: build/dev/mysql/8.0/Dockerfile
-    container_name: mysql
-    environment:
-      MYSQL_DATABASE: ${DB_NAME:-laravel}
-      MYSQL_USER: ${DB_USER:-developer}
-      MYSQL_PASSWORD: ${DB_PASS:-developer}
-      MYSQL_ROOT_PASSWORD: ${DB_PASS:-developer}
+    working_dir: /var/www/
+    volumes:
+      - ./src/bones:/var/www
+
+    networks:
+      - appdata
+
+  web:
+    image: nginx:1.19-alpine
+    container_name: app-web
+
     ports:
-      - ${DB_PORT:-3306}:3306
+      - "80:80"
+      - "443:443"
+
     volumes:
-      - dbdata:/var/lib/mysql
+      - ./config/docker/nginx/sites:/etc/nginx/conf.d:rw
+      - ./src/bones:/var/www
+
+    networks:
+      - appdata
 
 
-volumes:
-  dbdata:
-  phpfpm-socket:
+networks:
+  appdata:
+    driver: bridge
