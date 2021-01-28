@@ -3,15 +3,3 @@
 /test/
 .gitignore
 .env
-
-#
-# Darkstar Project Ignore
-#
-/src/darkstar/
-
-
-#
-# Laravel Project Ignore
-#
-/src/laravel/vendor
-

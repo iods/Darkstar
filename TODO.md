@@ -13,11 +13,12 @@ and then use this to make more cool PHP shit.
 ##### Estimated Release: N/A
 
 ### Platform (Tools & Libraries)
-  * [] @TODO Addition of the Laravel Framework
-  * [] @TODO Addition of the Slim PHP Framework
-  * [] @TODO Addition of the Symphony Framework
-  * [] @TODO Addition of the Darkstar PHP Framework
-  * [] @TODO Addition of the CodeIgniter Framework
+  * [x] @TODO Addition of the Iods Bones Project
+  * [-] @TODO Addition of the Laravel Framework
+  * [-] @TODO Addition of the Slim PHP Framework
+  * [-] @TODO Addition of the Symphony Framework
+  * [-] @TODO Addition of the Darkstar PHP Framework
+  * [-] @TODO Addition of the CodeIgniter Framework
 
 
 ### Client/UI
