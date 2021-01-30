@@ -8,6 +8,10 @@ interface RequestInterface {
 
     public function getHeaders(): array;
 
+    public function getQueryString(): string;
+
+    public function getQueryStringArray(): array;
+
     public function getRequestAddress(): string;
 
     public function getRequestHeaders(): array;

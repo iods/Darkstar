@@ -12,17 +12,11 @@ class Request implements RequestInterface {
 
     protected array $headers;
 
+    protected array $query_array;
 
-    protected string $uri_one;
-
-    protected string $uri_two;
-
-    protected string $uri_three;
-
+    protected string $query_string;
 
     protected string $uri;
-
-
 
 
 
@@ -31,9 +25,29 @@ class Request implements RequestInterface {
 
     }
 
+    private function parseQueryString()
+    {
+        static $is_parsed = false;
 
+        if (!$is_parsed) {
+            parse_str($this->query_string, $this->query_array);
+            $is_parsed = true;
+        }
+    }
 
+    public function getQueryString(): string
+    {
+        $string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+        $this->query_string = $string;
+        return $this->query_string;
+    }
 
+    public function getQueryStringArray(): array
+    {
+        $this->query_array = [];
+        $this->parseQueryString();
+        return $this->query_array;
+    }
 
 
     /*
@@ -45,8 +59,8 @@ class Request implements RequestInterface {
         $one = $_SERVER['REQUEST_URI'];
         $two = substr(rawurldecode($_SERVER['REQUEST_URI']), strlen('/'));
         $three = substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/'));
-        if ($one) {
-            $this->uri = $one;
+        if ($two) {
+            $this->uri = $two;
         }
         return $this->uri;
     }

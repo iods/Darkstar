@@ -52,3 +52,12 @@ echo '<br />';
 echo '<br />';
 echo $r->getRequestMethod();
 echo '<br />';
+
+echo '<br />';
+echo $r->getQueryString();
+echo '<br />';
+
+
+echo '<br />';
+echo $r->getQueryStringArray();
+echo '<br />';
