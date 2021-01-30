@@ -6,13 +6,15 @@ interface RequestInterface {
 
     public function getUri(): string;
 
-    public function getRequestUri(): string;
-
     public function getHeaders(): array;
+
+    public function getRequestAddress(): string;
 
     public function getRequestHeaders(): array;
 
-    public function getRequestAddress(): string;
+    public function getRequestMethod(): string;
+
+    public function getRequestUri(): string;
 
     public function isHttps(): bool;
 

@@ -63,8 +63,17 @@ class Request implements RequestInterface {
 
 
 
+    public function getRequestMethod(): string
+    {
+        $request_method = $_SERVER['REQUEST_METHOD'];
 
+        if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
+            ob_start();
+            $request_method = 'GET';
+        }
 
+        return $request_method;
+    }
 
 
     /*
@@ -105,9 +114,10 @@ class Request implements RequestInterface {
 
 
 
-
-
-
+    public function getRequestAddress(): string
+    {
+        return $_SERVER['REMOTE_ADDR'];
+    }
 
 
     public function getCookies(): array

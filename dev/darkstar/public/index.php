@@ -30,6 +30,8 @@ $test = new Router();
 
 $r = new Request();
 
+
+
 echo '<pre>';
 var_dump($r->getCookies());
 echo '</pre>';
@@ -43,3 +45,10 @@ echo '<br />';
 if (!$r->isHttps()) {
     echo $r->getRequestUri();
 }
+echo '<br />';
+echo $r->getRequestAddress();
+echo '<br />';
+
+echo '<br />';
+echo $r->getRequestMethod();
+echo '<br />';
