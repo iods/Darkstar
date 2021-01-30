@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Darkstar\\":"lib/Darkstar"
+      "Darkstar\\":"/lib/Darkstar"
     }
   }
 }
