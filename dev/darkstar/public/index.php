@@ -59,5 +59,11 @@ echo '<br />';
 
 
 echo '<br />';
-echo $r->getQueryStringArray();
+echo '<pre>';
+var_dump($r->getQueryStringArray());
+echo '</pre>';
+echo '<br />';
+
+echo '<br />';
+echo $r->getHeader('Host');
 echo '<br />';

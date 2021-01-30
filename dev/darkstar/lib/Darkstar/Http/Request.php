@@ -1,6 +1,10 @@
 <?php
 
+// http://darkstar.local/one/two/three/four/query?id=01&beets=true&brown_bears=false&show=battlestar%galactica
+
 namespace Darkstar\Http;
+
+use JetBrains\PhpStorm\Pure;
 
 class Request implements RequestInterface {
 
@@ -102,6 +106,11 @@ class Request implements RequestInterface {
         return $this->headers;
     }
 
+    public function getHeader(string $header): string|null
+    {
+        return array_key_exists($header, $this->headers) ? $this->headers[$header] : null;
+    }
+
     /*
      * Way Two
      */
@@ -122,7 +131,9 @@ class Request implements RequestInterface {
             }
         }
 
-        return $headers;
+        $this->headers = $headers;
+
+        return $this->headers;
     }
 
 
@@ -154,8 +165,8 @@ class Request implements RequestInterface {
     public function getBody(): string
     {
         // php://input returns all the raw data after the HTTP-headers of
-        // the request, regardless of the content type
-        // allows you to use the special php://input address to retrieve JSON data as a string.
+        // the request, regardless of the content type and allows to
+        // retrieve JSON data as a string
         $input = file_get_contents('php://input');
         if ($input) {
             $this->body = $input;
@@ -173,7 +184,8 @@ class Request implements RequestInterface {
 
 
     public function getJson(): array {
-        // from getBody() you use json_decode to turn the JSON string into a workable object/array.
+        // then, from getBody() json_decode will turn the JSON
+        // string into a workable object/array
         return json_decode($this->body, true);
     }
 
