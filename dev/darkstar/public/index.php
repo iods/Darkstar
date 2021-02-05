@@ -15,55 +15,48 @@ require '../app/config.php';
 include_once '../vendor/autoload.php';
 
 use Darkstar\Http\Request;
+use Darkstar\Http\Response;
 use Darkstar\Router\Router;
 
-$temp = substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/'));
-echo $temp;
 
-echo '<br>';
-$uri = substr(rawurldecode($_SERVER['REQUEST_URI']), strlen('/'));
-echo $uri;
-echo '<br>';
+class TestController {
 
-$test = new Router();
+    public function oneAction(): string
+    {
+        return 'this is one action to list';
+    }
 
-
-$r = new Request();
-
-
-
-echo '<pre>';
-var_dump($r->getCookies());
-echo '</pre>';
-echo '<br />';
-echo $r->getBody();
-echo '<br />';
-echo '<pre>';
-var_dump($r->getRequestHeaders());
-echo '</pre>';
-echo '<br />';
-if (!$r->isHttps()) {
-    echo $r->getRequestUri();
+    public function twoAction(): string
+    {
+        return 'this is another action to list.';
+    }
 }
-echo '<br />';
-echo $r->getRequestAddress();
-echo '<br />';
-
-echo '<br />';
-echo $r->getRequestMethod();
-echo '<br />';
-
-echo '<br />';
-echo $r->getQueryString();
-echo '<br />';
 
 
-echo '<br />';
-echo '<pre>';
-var_dump($r->getQueryStringArray());
-echo '</pre>';
-echo '<br />';
+/*
 
-echo '<br />';
-echo $r->getHeader('Host');
-echo '<br />';
+$route = new Router;
+
+$route->any('/test', 'TestController@oneAction'); // serve anything (default handler?)
+
+$route->get('/test/:id' 'TestController@oneAction', [
+    'require' => [ '::id' => '(\w+)', ],
+    'default' => [ '::id' => '1', ]
+]);
+
+$route->build();
+
+$r = $route->dispatch('/
+
+var_dump($r);
+
+*/
+
+$route = new Router;
+
+$route->any('get|post', '/test/:id/user/:uid','TestController@oneAction', [
+    'option' => 'one',
+    'another' => 'two'
+]);
+
+$route->dispatch();

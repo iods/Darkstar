@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\Pure;
 
 class Request implements RequestInterface {
 
+    // empty string providing
     private string $base_path = '';
 
     protected string $body;
@@ -29,6 +30,11 @@ class Request implements RequestInterface {
 
     }
 
+
+
+    /**
+     *
+     */
     private function parseQueryString()
     {
         static $is_parsed = false;
@@ -39,11 +45,23 @@ class Request implements RequestInterface {
         }
     }
 
+
+
     public function getQueryString(): string
     {
+        // if there is something in the query string, set it to $string,
+        // otherwise set $string to an empty string.
         $string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+
+        //
         $this->query_string = $string;
         return $this->query_string;
+    }
+
+    public function getQuery(string $query): string|null
+    {
+        $this->parseQueryString();
+        return array_key_exists($query, $this->query_array) ? $this->query_array[$query] : null;
     }
 
     public function getQueryStringArray(): array
@@ -53,8 +71,15 @@ class Request implements RequestInterface {
         return $this->query_array;
     }
 
+    public function isQuery(string $query): bool
+    {
+        $this->parseQueryString();
+        return array_key_exists($query, $this->query_array);
+    }
+
 
     /*
+     *
      * One way
      */
     public function getUri(): string
@@ -70,6 +95,16 @@ class Request implements RequestInterface {
     }
 
 
+
+    public function getUriEncoded(): array
+    {
+        $uri = [];
+        parse_str($this->body, $uri);
+        return $uri;
+    }
+
+
+
     public function getRequestUri(): string
     {
         $uri = $_SERVER['REQUEST_URI'];
@@ -78,6 +113,8 @@ class Request implements RequestInterface {
         }
         return $uri;
     }
+
+
 
 
 
@@ -94,6 +131,10 @@ class Request implements RequestInterface {
     }
 
 
+
+
+
+
     /*
      * Way One
      */
@@ -106,10 +147,23 @@ class Request implements RequestInterface {
         return $this->headers;
     }
 
+
+
+
+    public function isHeader(string $header): bool
+    {
+        return array_key_exists($header, $this->headers);
+    }
+
+
+
     public function getHeader(string $header): string|null
     {
         return array_key_exists($header, $this->headers) ? $this->headers[$header] : null;
     }
+
+
+
 
     /*
      * Way Two
@@ -139,10 +193,15 @@ class Request implements RequestInterface {
 
 
 
+
     public function getRequestAddress(): string
     {
         return $_SERVER['REMOTE_ADDR'];
     }
+
+
+
+
 
 
     public function getCookies(): array
@@ -154,12 +213,15 @@ class Request implements RequestInterface {
         return $cookies;
     }
 
+    public function isCookie(string $cookie): bool
+    {
+        return array_key_exists($cookie, $this->cookies);
+    }
 
-
-
-
-
-
+    public function getCookie(string $cookie): string|null
+    {
+        return array_key_exists($cookie, $this->cookies) ? $this->cookies[$cookie] : null;
+    }
 
 
     public function getBody(): string
@@ -177,10 +239,18 @@ class Request implements RequestInterface {
     }
 
 
+
+
+
+
+
     public function isHttps(): bool
     {
         return !empty($_SERVER['HTTPS']);
     }
+
+
+
 
 
     public function getJson(): array {

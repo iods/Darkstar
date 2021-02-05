@@ -3,85 +3,72 @@
 namespace Darkstar\Router;
 
 
+use Darkstar\Http\Request;
+use Darkstar\Http\ResponseInterface;
+
 class Router implements RouterInterface {
 
-    const ROUTE_NOT_FOUND = 404;            // unable to find a route?
 
     private string $base_path;              // base path for router execution
 
-    protected array $_route = array();      // object containing the paths for a route
+    protected string $_exception_handler;
 
-    protected string $_route_base = '';     // current route base (also used for sub-routing)
+    protected array $_middleware;  //
 
-
-
-
+    protected array $_routes;      // object containing the paths for a route
 
 
-
-    protected string $_route_path;          //
-
-    protected array $_route_post = array(); // route patterns and their handling functions
-
-    protected array $_route_pre = array();  // before middleware patterns and their handling functions
 
 
 
 
     public function __construct(string $base_path = '')
     {
-
+        $this->_middleware = [];
+        $this->_routes = [];
+        $this->_exception_handler = 'This is the exception handler.';
+        $this->base_path = $base_path;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    protected function _getRequestUri()
+    /**
+     * @param string          $methods    Request methods to be used with the matched route.
+     * @param string          $route      Route path to be executed/matched.
+     * @param callable|string $handle     Function handler used for the route path.
+     * @param array           $middleware Array of options to be dispatched with the route.
+     */
+    public function any(string $methods, string $route, callable|string $handle, array $middleware = []): void
     {
+        $methods = explode('|', $methods);
 
-        $tiffany = $_SERVER['REQUEST_URI'];
+        foreach ($methods as $method) {
 
-        $tiffany = explode('/', $tiffany);
-        array_shift($tiffany);
-        $this->_uri = $tiffany;
-
-        if (!empty($this->_uri[0])) {
-            $this->_dispatchUri();
+            if (!isset($this->_routes[strtoupper($method)])) {
+                $this->_routes[strtoupper($method)] = [];
+            }
+            return;
         }
 
-        return $tiffany;
-    }
 
-    private function getBasePath()
-    {
-        if (!empty($this->base_path)) {
-            echo "empty!";
-        }
 
-        if ($this->base_path === null) {
-            $this->base_path = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
-        }
-        return $this->base_path;
+        $routs = [
+            $methods,
+            $route,
+            $handle,
+            $middleware
+        ];
+
+        echo '<pre>';
+        var_dump($routs);
+        echo '</pre>';
     }
 
 
-    public function run()
+    public function dispatch(): void
     {
-        // TODO: Implement run() method.
+        $request = new Request();
+        $method = $request->getRequestMethod();
+
+        echo $method;
     }
 }
