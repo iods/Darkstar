@@ -1,22 +1,30 @@
+DC=docker-compose
+
+# Start Docker
+up:
+	@make build
+	$(DC) exec --user=root php /bin/bash /docker/xdebug,sh
 
 bones:
 	@cp build/compose/docker-compose.bones.yml docker-compose.yml
-	@docker-compose build --no-cache --force-rm
-	@make start
+	@make build
+
+congruence:
+	@cp build/compose/docker-compose.congruence.yml docker-compose.yml
+	@make build
 
 darkstar:
 	@cp build/compose/docker-compose.darkstar.yml docker-compose.yml
-	@docker-compose build --no-cache --force-rm
-	@make start
+	@make build
 
-start:
-	@docker-compose up -d
-
+.PHONY: build
+build:
+	$(DC) build --no-cache --force-rm
+	$(DC) up -d
 
 stop:
-	@docker-compose down
-
+	$(DC) down
 
 destroy:
-	@docker-compose down --rmi all --volumes --remove-orphans
+	$(DC) down --rmi all --volumes --remove-orphans
 	@rm docker-compose.yml
