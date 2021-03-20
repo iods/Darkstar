@@ -1,0 +1,16 @@
+version: "3"
+
+# Dependencies : iproute2 net-tools
+services:
+  php:
+    environment:
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_MODE: debug
+      PHP_XDEBUG_START_WITH_REQUEST: "yes"
+      PHP_IDE_CONFIG: serverName=phpstorm
+      PHP_XDEBUG_IDEKEY: "phpstorm"
+      PHP_XDEBUG_CLIENT_HOST: host.docker.internal
+      PHP_XDEBUG_REMOTE_HOST: docker.host.ip
+      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
+    volumes:
+      - ./scripts/setup-xdebug.sh:/docker/setup-xdebug.sh
