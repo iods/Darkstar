@@ -11,7 +11,7 @@ services:
 
     working_dir: /var/www/
     volumes:
-      - ./dev/congruence:/var/www
+      - ./examples/congruence:/var/www
 
     networks:
       - appdata
@@ -29,7 +29,7 @@ services:
 
     volumes:
       - ./config/docker/nginx/sites:/etc/nginx/conf.d:rw
-      - ./dev/congruence:/var/www
+      - ./examples/congruence:/var/www
 
     networks:
       - appdata
