@@ -1,8 +1,0 @@
-Router
-======
-
-
-### Request
-
-#### Functions
-
