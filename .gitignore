@@ -9,3 +9,4 @@
 /test/
 .gitignore
 .env
+docker-compose.yml
