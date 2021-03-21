@@ -32,6 +32,10 @@ build:
 	$(DC) up -d
 
 
+.PHONY: tests
+tests:
+	$(DC) run phpunit
+
 stop:
 	$(DC) down
 
