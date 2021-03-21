@@ -2,34 +2,17 @@ version: '3.8'
 
 services:
 
-  phpfpm:
+  phpunit:
     build:
       context: .
-      dockerfile: build/docker/php/Dockerfile
-    image: phpfpm
-    container_name: phpfpm-app
+      dockerfile: build/docker/php/7.4/cli/Dockerfile
+    image: phpunit
+    container_name: phpunit-app
 
-    working_dir: /var/www/
+    working_dir: /app
     volumes:
-      - ./dev/congruence:/var/www
-
-    networks:
-      - appdata
-
-  web:
-    build:
-      context: .
-      dockerfile: build/docker/nginx/Dockerfile
-    image: web
-    container_name: web-app
-
-    ports:
-      - "80:80"
-      - "443:443"
-
-    volumes:
-      - ./config/docker/nginx/sites:/etc/nginx/conf.d:rw
-      - ./dev/congruence:/var/www
+      - ./examples/congruence:/app
+    entrypoint: vendor/bin/phpunit
 
     networks:
       - appdata
