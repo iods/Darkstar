@@ -1,4 +1,4 @@
-{
+ {
   "name": "iods/php-sdk",
   "description": "A sandbox for everything past, present, and future PHP.",
   "type": "project",
@@ -8,13 +8,5 @@
       "name": "Rye Miller",
       "email": "rye@drkstr.dev"
     }
-  ],
-  "require": {
-
-  },
-  "autoload": {
-    "psr-4": {
-      "Darkstar\\":"/lib/Darkstar"
-    }
-  }
+  ]
 }

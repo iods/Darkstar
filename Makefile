@@ -34,7 +34,11 @@ build:
 
 .PHONY: tests
 tests:
+	@echo "Starting Tests..."
+	@echo
 	$(DC) run phpunit
+	@echo
+
 
 stop:
 	$(DC) down
