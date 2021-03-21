@@ -1,0 +1,12 @@
+ {
+  "name": "iods/php-sdk",
+  "description": "A sandbox for everything past, present, and future PHP.",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rye Miller",
+      "email": "rye@drkstr.dev"
+    }
+  ]
+}
