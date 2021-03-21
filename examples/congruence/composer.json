@@ -9,6 +9,12 @@
       "email": "rye@drkstr.dev"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "Darkstar\\Congruence\\": "src",
+      "Darkstar\\Framework\\": "../../src"
+    }
+  },
   "require": {
 
   },
