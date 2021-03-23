@@ -18,7 +18,7 @@ use Darkstar\Ravino\Block\BlockInterface;
  * Interface StoreInterface
  * @package Darkstar\Ravino\Store
  */
-interface StoreInterface extends Countable
+interface StoreInterface extends Countable, \SeekableIterator
 {
     /**
      * @param BlockInterface $block
