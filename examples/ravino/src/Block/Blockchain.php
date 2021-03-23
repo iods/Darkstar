@@ -79,11 +79,6 @@ final class Blockchain implements BlockchainInterface
         return true;
     }
 
-    public function getIterator(): StoreInterface
-    {
-        return $this->store;
-    }
-
     public function count()
     {
         return $this->store->count();
@@ -92,5 +87,10 @@ final class Blockchain implements BlockchainInterface
     public function getBlock(int $position): BlockInterface
     {
         return $this->store->getBlock($position);
+    }
+
+    public function getIterator(): StoreInterface
+    {
+        // TODO: Implement getIterator() method.
     }
 }
