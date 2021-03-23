@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Darkstar PHP SDK.
+ *
+ * @version v0.1.0 Initial Release
+ * @license The MIT License, http://opensource.org/licenses/MIT
+ *
+ * @filesource
+ */
+
+use Darkstar\Ravino\Block\Blockchain;
+
+require __DIR__.'/../vendor/autoload.php';
+
+
+$ledger = new Blockchain([
+    'name'          => 'Ravino Coin',    // The Blockchain name
+    'mine_store'    => 'file',           // type of storage
+    'mine_strategy' => 'ProofOfStorage', // Strategy for mining
+]);
+
+$transaction = new B
+
+$chain->addBlock($transaction);
+/*
+ * Blockchain class/object is instantiated w/ Mine type, Configs
+ *
+ * A transaction is created, added as a block to the blockchain object
+ *  * key, message, amount, etc. transaction extends a block
+ *
+ *
+ */
+foreach ($chain->blocks as $block) {
+    show it here
+     echo "PoW: " . var_export((new ProofOfWork($block))->validate(), true) . PHP_EOL . PHP_EOL;
+}
+
+

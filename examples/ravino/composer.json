@@ -1,5 +1,5 @@
 {
-  "name": "iods/php-ravinos",
+  "name": "iods/php-ravino",
   "description": "A blockchain protocol experiment written in PHP.",
   "type": "project",
   "license": "MIT",
@@ -10,11 +10,11 @@
     }
   ],
   "require": {
-
+    "tuupola/base58": "2.x-dev"
   },
   "autoload": {
     "psr-4": {
-      "Darkstar\\":"/src"
+      "Darkstar\\Ravino\\": "src"
     }
   }
 }
