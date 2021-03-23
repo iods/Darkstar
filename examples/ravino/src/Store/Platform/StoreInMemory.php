@@ -9,11 +9,66 @@
  */
 namespace Darkstar\Ravino\Store;
 
+use OutOfBoundsException;
+
 use Darkstar\Ravino\Block\BlockInterface;
-use Darkstar\Ravino\Store\AbstractStore;
 
 
-final class MemoryStore extends AbstractStore
+/**
+ * Class StoreInMemory
+ * @package Darkstar\Ravino
+ */
+final class StoreInMemory extends AbstractStore
 {
+    /** @var array */
+    private array $chain;
 
+    /**
+     * @param BlockInterface $block
+     * @return boolean
+     */
+    public function addBlock(BlockInterface $block): bool
+    {
+        $this->chain[] = $block;
+        return true;
+    }
+
+    /**
+     * @param int $position
+     * @return BlockInterface
+     * @throws OutOfBoundsException
+     */
+    public function getBlock(int $position): BlockInterface
+    {
+        if (false === $this->isPositionValid($position)) {
+            throw new OutOfBoundsException("Block no exist", $position);
+        }
+        return $this->chain[$position];
+    }
+
+    /**
+     * @return BlockInterface
+     */
+    public function getBlockLatest(): BlockInterface
+    {
+        return end($this->chain);
+    }
+
+    /**
+     * Returns total count of elements in an object
+     * @return integer Total count as integer, return value cast to integer
+     */
+    public function count(): int
+    {
+        return count($this->chain);
+    }
+
+    /**
+     * @param int $position
+     * @return bool
+     */
+    protected function isPositionValid(int $position): bool
+    {
+        return isset($this->chain[$position]);
+    }
 }
