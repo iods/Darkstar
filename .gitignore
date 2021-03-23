@@ -5,6 +5,10 @@
 /examples/congruence/.phpunit.cache/
 /examples/congruence/var/
 /examples/congruence/vendor/
+/examples/ravino/.cache/
+/examples/ravino/.phpunit.cache/
+/examples/ravino/var/
+/examples/ravino/vendor/
 
 /test/
 .gitignore
