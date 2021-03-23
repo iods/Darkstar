@@ -13,7 +13,7 @@ use Darkstar\Ravino\Block\BlockInterface;
 use Darkstar\Ravino\Store\AbstractStore;
 
 
-final class StorePlatformInMemory extends AbstractStore
+final class MemoryStore extends AbstractStore
 {
 
 }
