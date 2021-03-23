@@ -9,17 +9,25 @@
  */
 namespace Darkstar\Ravino\Block;
 
-interface BlockchainInterface
+use Countable, IteratorAggregate;
+
+use Darkstar\Ravino\Store\StoreInterface;
+
+
+interface BlockchainInterface extends IteratorAggregate, Countable
 {
-    // publuc addBlock
-    // getBlock
-    // is vLID
-    // public function getIterator();
+    // add a new block to the chain
+    public function addBlock(BlockInterface $block): void;
 
+    // returns a block at the position specified
+    public function getBlock(int $position): BlockInterface;
 
-    /*
-     *
-     */
+    // returns the latest block within the chain
+    public function getBlockLatest(): BlockInterface;
 
-    public function get
+    // checks if the blockchain is in valid state
+    public function isValid(): bool;
+
+    // returns an iterator to iterate through the blocks
+    public function getIterator(): StoreInterface;
 }

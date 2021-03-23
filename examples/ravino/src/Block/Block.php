@@ -62,39 +62,82 @@ abstract class Block implements BlockInterface, JsonSerializable
     }
 
     /*
-     * Constructor
      *
-     * 1.
+     *
+     *
      *
      *
      */
+    public function getHash(): string
+    {
+        return $this->hash;
+    }
 
+    /*
+     *
+     *
+     *
+     *
+     *
+     */
+    public function getData(): string
+    {
+        return $this->_data;
+    }
 
+    /*
+     * What are we really doing here?
+     *
+     */
+    public function getPreviousHash(): ?string
+    {
+        return $this->previous_hash;
+    }
 
+    /*
+     * Here too?
+     */
+    public function setPreviousHash(string $previous_hash): void
+    {
+        $this->previous_hash = $previous_hash;
+        $this->updateHash();
+    }
 
+    public function getTimestamp(): DateTimeImmutable
+    {
+        return $this->time_stamp;
+    }
 
+    public function calculateHash(): string
+    {
+        return hash(self::HASH_ALGORITHM, (string) $this);
+    }
+
+    /*
+     *
+     *
+     *
+     *
+     */
+    public function updateHash(): void
+    {
+        $this->hash = $this->calculateHash();
+    }
 
 
     public static function genesis(): self
     {
-
+        return self::genesis();
     }
 
-
-    public static function calculateBlockHash(
-        int $index, string
-    ): string
-    {
-
-    }
 
     public function jsonSerialize(): array
     {
         return [
+            $this->hash,
             $this->_data,
             $this->time_stamp,
             $this->previous_hash,
-            $this->hash,
             $this->index,
             $this->difficulty,
             $this->nonce
@@ -108,6 +151,6 @@ abstract class Block implements BlockInterface, JsonSerializable
      */
     public function __toString(): string
     {
-        return serialize($this->_data)
+        return serialize($this->_data) . $this->previous_hash . $this->time_stamp->format('c');
     }
 }

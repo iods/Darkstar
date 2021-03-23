@@ -7,10 +7,11 @@
  *
  * @filesource
  */
-namespace Darkstar\Ravino\Store;
+namespace Darkstar\Ravino\Store\Platform;
 
 use OutOfBoundsException;
 
+use Darkstar\Ravino\Store\AbstractStore;
 use Darkstar\Ravino\Block\BlockInterface;
 
 
