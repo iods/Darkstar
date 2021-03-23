@@ -9,22 +9,38 @@
  */
 namespace Darkstar\Ravino\Block;
 
+use DateTimeImmutable;
+
+/**
+ * Interface BlockInterface
+ * @package Darkstar\Ravino
+ */
 interface BlockInterface
 {
-    // getHash
-    // getTimestamp
+    // return the hash of the current block
+    public function getHash(): string;
 
     /**
      * Returns the a new (immutable), custom timestamp object
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
-    //public function getTimestamp(): \DateTimeImmutable;
+    public function getTimestamp(): DateTimeImmutable;
 
-    // getPreviousHash
-    // getData
-    // setPreviousHash
-    // updateHash
-    // calculateHash
+    // get the previous block it is linked to hash and store
+    public function getPreviousHash(): ?string;
+
+    // return the stored data from within the block
+    // @TODO is this an array instead?
+    public function getData(): mixed;
+
+    // sets the previous hash linking to the block calling it
+    public function setPreviousHash(string $previous_hash): void;
+
+    // update the hash/array of this block
+    public function updateHash(): void;
+
+    // calculate the blocks hash using the ravino algorithm
+    public function calculateHash(): string;
 
     /**
      * Returns a string representation of the block for calculating a hash
