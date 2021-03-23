@@ -9,7 +9,16 @@
  */
 namespace Darkstar\Ravino\Store;
 
+
+/**
+ * Class AbstractStore
+ * @package Darkstar\Ravino
+ */
 abstract class AbstractStore implements StoreInterface
 {
-
+    /**
+     * @param int $position
+     * @return bool
+     */
+    abstract protected function isPositionValid(int $position): bool;
 }
