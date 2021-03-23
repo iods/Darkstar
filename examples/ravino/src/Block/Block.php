@@ -55,7 +55,7 @@ abstract class Block implements BlockInterface, JsonSerializable
     protected mixed $_data;
 
 
-    public function __construct(Data $data, DateTimeImmutable $time_stamp)
+    public function __construct($data, DateTimeImmutable $time_stamp)
     {
         $this->_data = $data;
         $this->time_stamp = $time_stamp;
