@@ -8,21 +8,22 @@
  *
  * @filesource
  */
+namespace Darkstar\Ravino;
 
 use Darkstar\Ravino\Block\Blockchain;
+use Darkstar\Ravino\Miner\ProofOfWork;
+use Darkstar\Ravino\Miner\ProofOfWorkBlock;
+use Darkstar\Ravino\Store\Platform\StoreInMemory;
 
 require __DIR__.'/../vendor/autoload.php';
 
 
-$ledger = new Blockchain([
-    'name'          => 'Ravino Coin',    // The Blockchain name
-    'mine_store'    => 'file',           // type of storage
-    'mine_strategy' => 'ProofOfStorage', // Strategy for mining
-]);
+$ledger = new Blockchain(
+    new ProofOfWork(8),
+    new StoreInMemory(),
+    new ProofOfWorkBlock('The mother of all chainz.', new \DateTimeImmutable('1962-12-15'))
+);
 
-$transaction = new B
-
-$chain->addBlock($transaction);
 /*
  * Blockchain class/object is instantiated w/ Mine type, Configs
  *
@@ -31,9 +32,17 @@ $chain->addBlock($transaction);
  *
  *
  */
-foreach ($chain->blocks as $block) {
-    show it here
-     echo "PoW: " . var_export((new ProofOfWork($block))->validate(), true) . PHP_EOL . PHP_EOL;
+
+$start = microtime(true);
+
+$ledger->addBlock($block_1 = new ProofOfWorkBlock('Here is', new \DateTimeImmutable('1986-11-12')));
+$ledger->addBlock($block_1 = new ProofOfWorkBlock('your backflips', new \DateTimeImmutable('2021-01-03')));
+$ledger->addBlock($block_1 = new ProofOfWorkBlock('and your cool gang', new \DateTimeImmutable('2021-03-23')));
+
+echo round(microtime(true) - $start, 4), ' seconds', PHP_EOL;
+
+foreach ($ledger as $i => $transaction) {
+    echo 'Block ' , $i , ': ' , $transaction->getHash() , PHP_EOL;
 }
 
-
+echo 'Blockchain valid: ' , ((int) $ledger->isValid()) , PHP_EOL;
