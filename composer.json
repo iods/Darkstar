@@ -1,12 +1,23 @@
  {
   "name": "iods/php-sdk",
-  "description": "A sandbox for everything past, present, and future PHP.",
-  "type": "project",
+  "description": "A PHP library for everything past, present, and future Ecommerce.",
+  "type": "libraryt",
   "license": "MIT",
   "authors": [
     {
       "name": "Rye Miller",
       "email": "rye@drkstr.dev"
     }
-  ]
+  ],
+  "version": "0.3",
+  "autoload": {
+    "psr-4": {
+      "Iods\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Iods\\Tests\\": "tests/"
+    }
+  }
 }
