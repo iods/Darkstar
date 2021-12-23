@@ -1,15 +1,15 @@
  {
   "name": "iods/php-sdk",
   "description": "A PHP library for everything past, present, and future Ecommerce.",
-  "type": "libraryt",
+  "type": "library",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Rye Miller",
-      "email": "rye@drkstr.dev"
-    }
-  ],
-  "version": "0.3",
+   "require": {
+     "php": "^7.3|^7.4",
+     "ext-json": "*"
+   },
+   "require-dev": {
+     "phpunit/phpunit": "*"
+   },
   "autoload": {
     "psr-4": {
       "Iods\\": "src/"
@@ -19,5 +19,6 @@
     "psr-4": {
       "Iods\\Tests\\": "tests/"
     }
-  }
-}
+  },
+  "version": "0.3"
+ }
