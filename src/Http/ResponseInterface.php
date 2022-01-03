@@ -25,6 +25,8 @@ interface ResponseInterface
      */
     public function getBody(): string;
 
+    // public function getHeaders(): array;
+
     /**
      * Returns the result (status code) for satisfying a request.
      * @return StatusCode The status code.
