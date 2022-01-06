@@ -11,6 +11,10 @@
 /examples/ravino/vendor/
 
 /test/
+/vendor/
+
+composer.lock
+
 .gitignore
 .env
 docker-compose.yml

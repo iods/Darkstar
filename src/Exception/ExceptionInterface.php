@@ -1,17 +1,19 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * This file is part of the Darkstar PHP SDK.
  *
- * @version v0.1.0 Initial Release
+ * @version v000.1.0 Initial Release
  * @license The MIT License, http://opensource.org/licenses/MIT
  *
  * @filesource
  */
-namespace Darkstar\Framework\Exception;
+declare(strict_types=1);
+
+namespace Iods\Exception;
 
 /**
  * Interface ExceptionInterface
- * @package Darkstar\Framework\Exception
+ * @package Iods\Exception
  */
 interface ExceptionInterface {
 

@@ -9,15 +9,11 @@
  */
 declare(strict_types=1);
 
-namespace Iods\Exception;
+namespace Iods\Http\Exception;
 
-use Exception;
+use Iods\Http\StatusCode;
 
-/**
- * Class AbstractException
- * @package Iods\Exception
- */
-abstract class AbstractException extends Exception
+class NotAllowedException extends HttpException
 {
-    // ..
+    protected $code = StatusCode::METHOD_NOT_ALLOWED;
 }

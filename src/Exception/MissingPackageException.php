@@ -11,13 +11,9 @@ declare(strict_types=1);
 
 namespace Iods\Exception;
 
-use Exception;
+use InvalidArgumentException;
 
-/**
- * Class AbstractException
- * @package Iods\Exception
- */
-abstract class AbstractException extends Exception
+class MissingPackageException extends InvalidArgumentException implements ExceptionInterface
 {
-    // ..
+    // ...
 }
