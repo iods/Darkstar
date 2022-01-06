@@ -25,7 +25,17 @@ interface ResponseInterface
      */
     public function getBody(): string;
 
+    /**
+     * Returns the headers of the request.
+     * @return array
+     */
     // public function getHeaders(): array;
+
+    /**
+     * @param array $config
+     * @return mixed
+     */
+    public function json(array $config = array());
 
     /**
      * Returns the result (status code) for satisfying a request.

@@ -1,11 +1,12 @@
  {
   "name": "iods/php-sdk",
-  "description": "A PHP library for everything past, present, and future Ecommerce.",
+  "description": "A PHP framework for everything past, present, and future Ecommerce.",
   "type": "library",
   "license": "MIT",
    "require": {
      "php": "^7.3|^7.4",
-     "ext-json": "*"
+     "ext-json": "*",
+     "psr/container": "^2.0"
    },
    "require-dev": {
      "phpunit/phpunit": "*"
@@ -13,11 +14,6 @@
   "autoload": {
     "psr-4": {
       "Iods\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Iods\\Tests\\": "tests/"
     }
   },
   "version": "000.1.0"
