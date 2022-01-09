@@ -1,6 +1,13 @@
 Changelog - PHP SDK
 ===================
 
+### v000.1.1
+
+#### Update of PHP Service Container
+
+* Facade work for static PHP functions
+
+
 ### v000.1.0
 
 #### Addition of PHP Service Container
