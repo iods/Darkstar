@@ -9,9 +9,12 @@
  */
 declare(strict_types=1);
 
-namespace Iods\App;
+namespace Iods\App\Container\Exception;
 
-class AbstractCommon
+use Exception;
+use Psr\Container\NotFoundExceptionInterface;
+
+class NotFoundException extends Exception implements NotFoundExceptionInterface
 {
-
+    // ...
 }

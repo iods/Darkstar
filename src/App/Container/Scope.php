@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace Iods\App;
+namespace Iods\App\Container;
 
 class Scope
 {
