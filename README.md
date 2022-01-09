@@ -9,7 +9,7 @@ Getting Started
 
 ### Facts
 
- * Version: 0.1.0 (Development)
+ * Version: 000.1.0 (Development)
  * [Repository on Github](https://github.com/iods/php-sdk)
  
 
@@ -67,4 +67,4 @@ This project/code is released under [the MIT license](https://github.com/iods/ph
 Copyright
 ---------
 
-Copyright (c) 2017-2021, Rye Miller.
+Copyright (c) 2017-2022, Rye Miller.
