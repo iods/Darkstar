@@ -60,7 +60,7 @@ class Container implements ContainerInterface
      * @return mixed
      * @throws ReflectionException
      */
-    public function get(string $id)
+    public function get(string $id): mixed
     {
         return $this->getInstance($id);
     }
