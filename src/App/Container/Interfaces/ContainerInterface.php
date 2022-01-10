@@ -2,7 +2,7 @@
 /**
  * This file is part of the Iods PHP SDK.
  *
- * @version 000.1.0 Initial Release
+ * @version 000.1.2 Initial Release
  * @license The MIT License, http://opensource.org/licenses/MIT
  *
  * @filesource
