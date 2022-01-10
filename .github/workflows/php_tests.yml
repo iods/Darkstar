@@ -1,0 +1,24 @@
+name: PHP Tests and QA
+
+on: [push]
+
+jobs:
+
+  tests:
+    name: Tests running on PHP ${{ matrix.php-versions }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '7.4', '8.0' ]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-versions: ${{ matrix.php-versions }}
+          coverage: xdebug
+
+      - name: Validate Composer
+        run: composer validate
