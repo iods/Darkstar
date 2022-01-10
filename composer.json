@@ -20,6 +20,5 @@
      "psr-4": {
        "Iods\\Tests\\": "tests/"
      }
-   },
-  "version": "001.1.1"
+   }
  }
