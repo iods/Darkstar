@@ -2,7 +2,7 @@
 /**
  * This file is part of the Iods PHP SDK.
  *
- * @version 000.1.0 Initial Release
+ * @version 000.1.2 Initial Release
  * @license The MIT License, http://opensource.org/licenses/MIT
  *
  * @filesource
@@ -162,11 +162,11 @@ class Container implements ContainerInterface
     {
         if (!class_exists($class)) return null;
 
-        $reflectionClass = new ReflectionClass($class);
+        $reflector = new ReflectionClass($class);
 
-        if (!$reflectionClass->isInstantiable()) throw new ContainerException("Class {$class} is not instantiable!");
+        if (!$reflector->isInstantiable()) throw new ContainerException("Class {$class} is not instantiable!");
 
-        $constructor = $reflectionClass->getConstructor();
+        $constructor = $reflector->getConstructor();
 
         if (!$constructor) return new $class;
 
@@ -196,7 +196,7 @@ class Container implements ContainerInterface
             $constructorParams = $instance;
         }
 
-        return $reflectionClass->newInstanceArgs($constructorParams);
+        return $reflector->newInstanceArgs($constructorParams);
     }
 
     /**

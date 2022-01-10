@@ -18,3 +18,5 @@ composer.lock
 .gitignore
 .env
 docker-compose.yml
+
+**.phpunit.cache

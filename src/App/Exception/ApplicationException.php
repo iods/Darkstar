@@ -9,10 +9,11 @@
  */
 declare(strict_types=1);
 
-namespace Iods\App\Container;
+namespace Iods\App\Exception;
 
-class Scope
+use Iods\Base\Exception\BaseException;
+
+class ApplicationException extends BaseException
 {
-    public const SCOPE_PROTOTYPE = 'PROTOTYPE';
-    public const SCOPE_SINGLETON = 'SINGLETON';
+    // ...
 }

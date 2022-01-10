@@ -9,13 +9,13 @@ Getting Started
 
 ### Facts
 
- * Version: 000.1.0 (Development)
+ * Version: 000.1.2 (Development)
  * [Repository on Github](https://github.com/iods/php-sdk)
  
 
 ### Description
 
-Combines multiple PHP projects, examples, and tools from my past and future PHP experiences.
+A new framework to for an old man.
 
 
 ### Requirements
@@ -26,7 +26,7 @@ Combines multiple PHP projects, examples, and tools from my past and future PHP 
 
 ### Installation
 
-The Makefile will copy over the project .env file upon build, and remove upon destroy of the environments.
+@TODO
 
 
 Developer
