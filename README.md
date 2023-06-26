@@ -15,7 +15,7 @@ Getting Started
 
 ### Description
 
-A new framework to for an old man.
+A new framework for an old man.
 
 
 ### Requirements
@@ -36,13 +36,12 @@ Developer
 
  * [GitHub](http://github.com/iods/)
  * [Website](http://ryemiller.io)
- * [Twitter](https://twitter.com/ryemiller)
 
 
 Support
 -------
 
-For any issues with this project, open an issue on [Github](https://github.com/iods/php-sdk)
+For any issues with this project, open an issue on [Github](https://github.com/iods/php-framework)
 
 
 Versioning
@@ -61,10 +60,10 @@ Thank you to [Red Bull](http://www.redbull.com) for keeping me awake all those l
 License
 -------
 
-This project/code is released under [the MIT license](https://github.com/iods/php-sdk/LICENSE).
+This project/code is released under [the MIT license](https://github.com/iods/php-framework/LICENSE).
 
 
 Copyright
 ---------
 
-Copyright (c) 2017-2022, Rye Miller.
+Copyright (c) 2017-Present Rye Miller.
