@@ -1,6 +1,8 @@
 **.DS_Store
 /.idea/
 
+/docker/*
+
 /examples/congruence/.cache/
 /examples/congruence/.phpunit.cache/
 /examples/congruence/var/
